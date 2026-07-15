@@ -1,0 +1,64 @@
+@import "theme.css";
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: monospace, "Font Awesome 5 Free";
+    font-size: 12px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: @bg;
+    color: @fg;
+}
+
+tooltip {
+    background: @bg-strong;
+    border: 1px solid @border;
+    color: @fg;
+}
+
+#workspaces button {
+    background: transparent;
+    color: @muted;
+    margin: 0;
+    padding: 0 10px;
+}
+
+#workspaces button.active {
+    background: @accent-soft;
+    color: @fg;
+}
+
+#workspaces button.urgent {
+    background: @urgent;
+    color: @fg;
+}
+
+#window {
+    color: @fg;
+    padding: 0 12px;
+}
+
+#tray,
+#network,
+#pulseaudio,
+#battery,
+#clock {
+    padding: 0 10px;
+}
+
+#network.disconnected,
+#pulseaudio.muted {
+    color: @dim;
+}
+
+#battery.warning {
+    color: @warning;
+}
+
+#battery.critical {
+    background: @critical-bg;
+    color: @critical;
+}

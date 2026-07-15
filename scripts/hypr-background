@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CONFIG_DIR="${HYPR_CONFIG_DIR:-$HOME/.config/hypr}"
+WALLPAPER_DIR="$CONFIG_DIR/wallpapers"
+CURRENT="$WALLPAPER_DIR/current.svg"
+
+usage() {
+  cat <<USAGE
+Usage:
+  scripts/hypr-background list
+  scripts/hypr-background apply <name>
+
+Examples:
+  scripts/hypr-background list
+  scripts/hypr-background apply gruvbox
+USAGE
+}
+
+list_backgrounds() {
+  find "$WALLPAPER_DIR" -maxdepth 1 -type f -name '*.svg' ! -name current.svg -printf '%f\n' \
+    | sed 's/\.svg$//' \
+    | sort
+}
+
+apply_background() {
+  local name="$1"
+  local source="$WALLPAPER_DIR/$name.svg"
+
+  if [[ ! -f "$source" ]]; then
+    printf 'Unknown background: %s\n\nAvailable backgrounds:\n' "$name" >&2
+    list_backgrounds >&2
+    exit 1
+  fi
+
+  cp "$source" "$CURRENT"
+
+  if command -v swaybg >/dev/null 2>&1; then
+    if [[ -z "${WAYLAND_DISPLAY:-}" ]]; then
+      printf 'Applied background file, but this shell is not connected to Wayland.\n'
+      printf 'Run this command from a terminal inside Hyprland to display it now.\n'
+    else
+      pkill swaybg 2>/dev/null || true
+      swaybg -i "$CURRENT" -m fill &
+      local swaybg_pid="$!"
+      sleep 0.2
+      if ! kill -0 "$swaybg_pid" 2>/dev/null; then
+        wait "$swaybg_pid" 2>/dev/null || true
+        printf 'Applied background file, but swaybg did not stay running.\n'
+        printf 'Run this command from a terminal inside Hyprland to display it now.\n'
+      fi
+    fi
+  else
+    printf 'Applied background file, but swaybg is not installed.\n'
+    printf 'Install it with: sudo apt install swaybg\n'
+  fi
+
+  printf 'Applied background: %s\n' "$name"
+}
+
+case "${1:-}" in
+  list)
+    list_backgrounds
+    ;;
+  apply)
+    if [[ -z "${2:-}" ]]; then
+      usage >&2
+      exit 1
+    fi
+    apply_background "$2"
+    ;;
+  "" | -h | --help | help)
+    usage
+    ;;
+  *)
+    usage >&2
+    exit 1
+    ;;
+esac

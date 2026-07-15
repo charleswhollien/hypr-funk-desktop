@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+log=/tmp/hypr-omarchy-screensaver.log
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+screensaver="$script_dir/omarchy-screensaver"
+
+printf '[%s] launch requested\n' "$(date -Is)" >> "$log"
+
+if ! command -v tte >/dev/null 2>&1; then
+  printf '[%s] missing tte\n' "$(date -Is)" >> "$log"
+  notify-send -u low "Screensaver needs python3-terminaltexteffects" 2>/dev/null || true
+  exit 1
+fi
+
+if pgrep -f 'ghostty .*org.omarchy.screensaver|omarchy-screensaver' >/dev/null 2>&1; then
+  printf '[%s] already running\n' "$(date -Is)" >> "$log"
+  exit 0
+fi
+
+printf '[%s] launching ghostty\n' "$(date -Is)" >> "$log"
+ghostty --class=org.omarchy.screensaver --font-size=18 -e "$screensaver" 2>> "$log" &

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2b2d42"/>
+      <stop offset="100%" stop-color="#202235"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ef233c"/>
+      <stop offset="100%" stop-color="#d90429"/>
+    </linearGradient>
+    <linearGradient id="silver" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#edf2f4"/>
+      <stop offset="100%" stop-color="#8d99ae"/>
+    </linearGradient>
+    <pattern id="diag" width="30" height="30" patternUnits="userSpaceOnUse" patternTransform="rotate(35)">
+      <line x1="0" y1="0" x2="0" y2="30" stroke="#edf2f4" stroke-width="4" opacity="0.75"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="26" stdDeviation="24" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <rect width="3840" height="2160" fill="url(#bg)"/>
+
+  <!-- left red crossing motif -->
+  <polygon points="0,480 320,800 0,1120" fill="url(#red)"/>
+  <path d="M0 1000 L470 530 A430 430 0 0 1 470 1470 L0 1000Z" fill="#d90429" opacity="0.95"/>
+  <polygon points="0,1080 300,1380 760,920 460,620" fill="#25283c" opacity="0.92"/>
+
+  <!-- top-left gray corner -->
+  <polygon points="0,0 1220,0 520,670" fill="#8d99ae" opacity="0.95"/>
+  <rect x="420" y="250" width="170" height="170" fill="none"/>
+  <g fill="#edf2f4" opacity="0.95">
+    <circle cx="445" cy="275" r="6"/><circle cx="490" cy="275" r="6"/><circle cx="535" cy="275" r="6"/><circle cx="580" cy="275" r="6"/>
+    <circle cx="445" cy="320" r="6"/><circle cx="490" cy="320" r="6"/><circle cx="535" cy="320" r="6"/><circle cx="580" cy="320" r="6"/>
+    <circle cx="445" cy="365" r="6"/><circle cx="490" cy="365" r="6"/><circle cx="535" cy="365" r="6"/><circle cx="580" cy="365" r="6"/>
+    <circle cx="445" cy="410" r="6"/><circle cx="490" cy="410" r="6"/><circle cx="535" cy="410" r="6"/><circle cx="580" cy="410" r="6"/>
+  </g>
+
+  <!-- top-right striped arc and wedges -->
+  <circle cx="3150" cy="-40" r="700" fill="url(#diag)"/>
+  <polygon points="3540,120 3840,0 3840,460" fill="url(#red)"/>
+  <polygon points="3340,610 3710,250 3840,730" fill="#8d99ae"/>
+
+  <!-- bottom-left white triangle and circle -->
+  <circle cx="625" cy="1930" r="360" fill="#8d99ae" opacity="0.9"/>
+  <polygon points="0,2160 0,1470 820,2160" fill="#edf2f4"/>
+  <polygon points="780,2160 1110,1830 1450,2160" fill="url(#red)"/>
+  <line x1="940" y1="1910" x2="1100" y2="1750" stroke="#edf2f4" stroke-width="6"/>
+  <line x1="970" y1="1940" x2="1130" y2="1780" stroke="#ef233c" stroke-width="6"/>
+
+  <!-- bottom-right geometric stack -->
+  <polygon points="2860,1660 3250,1270 3640,1660" fill="url(#silver)"/>
+  <polygon points="3190,1660 3550,1300 3840,1590 3840,2160 3560,2160" fill="#edf2f4"/>
+  <polygon points="3180,1660 3590,1660 3840,1910 3840,2160 3520,2160" fill="url(#red)"/>
+  <path d="M3470 1660 A390 390 0 0 1 3470 2160 L3470 1660Z" fill="#d90429"/>
+  <line x1="3020" y1="1890" x2="3340" y2="1570" stroke="#edf2f4" stroke-width="6"/>
+  <line x1="3060" y1="1930" x2="3380" y2="1610" stroke="#ef233c" stroke-width="6"/>
+  <g fill="#ef233c">
+    <circle cx="3230" cy="1980" r="6"/><circle cx="3275" cy="1980" r="6"/><circle cx="3320" cy="1980" r="6"/><circle cx="3365" cy="1980" r="6"/>
+    <circle cx="3230" cy="2025" r="6"/><circle cx="3275" cy="2025" r="6"/><circle cx="3320" cy="2025" r="6"/><circle cx="3365" cy="2025" r="6"/>
+    <circle cx="3230" cy="2070" r="6"/><circle cx="3275" cy="2070" r="6"/><circle cx="3320" cy="2070" r="6"/><circle cx="3365" cy="2070" r="6"/>
+    <circle cx="3230" cy="2115" r="6"/><circle cx="3275" cy="2115" r="6"/><circle cx="3320" cy="2115" r="6"/><circle cx="3365" cy="2115" r="6"/>
+  </g>
+
+  <!-- center accent lines -->
+  <line x1="2350" y1="420" x2="2580" y2="190" stroke="#ef233c" stroke-width="6"/>
+  <line x1="2380" y1="460" x2="2610" y2="230" stroke="#8d99ae" stroke-width="6"/>
+
+  <!-- right-aligned word -->
+  <g filter="url(#shadow)" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="900" font-size="760" text-anchor="end">
+    <text x="3320" y="1310" fill="#edf2f4">fun</text>
+    <text x="3700" y="1310" fill="url(#red)">k</text>
+  </g>
+</svg>

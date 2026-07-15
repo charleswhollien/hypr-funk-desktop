@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="3840" height="2160" viewBox="0 0 3840 2160">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d2021"/>
+      <stop offset="0.55" stop-color="#282828"/>
+      <stop offset="1" stop-color="#32302f"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7daea3" stop-opacity="0.58"/>
+      <stop offset="1" stop-color="#d8a657" stop-opacity="0.30"/>
+    </linearGradient>
+  </defs>
+  <rect width="3840" height="2160" fill="url(#bg)"/>
+  <path d="M-160 1570 C 620 1270, 1110 1800, 1860 1450 S 3170 900, 4050 1260" fill="none" stroke="url(#accent)" stroke-width="14"/>
+  <path d="M-120 1670 C 680 1400, 1150 1900, 1900 1560 S 3220 1040, 4060 1370" fill="none" stroke="#a9b665" stroke-opacity="0.18" stroke-width="10"/>
+  <path d="M-100 1770 C 780 1540, 1300 2000, 2020 1660 S 3230 1220, 4000 1500" fill="none" stroke="#ea6962" stroke-opacity="0.14" stroke-width="8"/>
+  <g stroke="#d4be98" stroke-opacity="0.055" stroke-width="2">
+    <path d="M360 0 V2160"/>
+    <path d="M720 0 V2160"/>
+    <path d="M1080 0 V2160"/>
+    <path d="M1440 0 V2160"/>
+    <path d="M1800 0 V2160"/>
+    <path d="M2160 0 V2160"/>
+    <path d="M2520 0 V2160"/>
+    <path d="M2880 0 V2160"/>
+    <path d="M3240 0 V2160"/>
+  </g>
+</svg>
